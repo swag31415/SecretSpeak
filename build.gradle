@@ -8,7 +8,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:28.2-jre'
+    implementation 'com.squareup.okhttp3:okhttp:4.6.0'
+    // https://mvnrepository.com/artifact/org.json/json
+    compile group: 'org.json', name: 'json', version: '20190722'
 }
 
 application {
