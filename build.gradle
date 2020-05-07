@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'edu.sc.seis.launch4j' version '2.4.6'
 }
 
 javafx {
@@ -21,4 +22,13 @@ dependencies {
 
 application {
     mainClassName = 'SecretSpeak2.App'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'SecretSpeak2.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
