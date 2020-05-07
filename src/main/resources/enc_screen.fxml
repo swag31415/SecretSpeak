@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0C987;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SecretSpeak2.FxController">
+   <children>
+      <Button alignment="CENTER" layoutX="372.0" layoutY="289.0" mnemonicParsing="false" onAction="#copy_enc" prefHeight="97.0" prefWidth="103.0" style="-fx-background-color: #89BD9E;" text="Copy Your Encrypted Message" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <TextArea fx:id="msg_box" layoutX="14.0" layoutY="14.0" prefHeight="264.0" prefWidth="572.0" promptText="Copy your encrypted message and send it to the other person. Then paste their encrypted message here and press decrypt. If they are simmilar you can read their message!" style="-fx-background-color: #89BD9E;" />
+      <Button alignment="CENTER" layoutX="483.0" layoutY="289.0" mnemonicParsing="false" onAction="#decrypt" prefHeight="97.0" prefWidth="103.0" style="-fx-background-color: #89BD9E;" text="Decrypt" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Button alignment="CENTER" layoutX="14.0" layoutY="289.0" mnemonicParsing="false" onAction="#restart" prefHeight="97.0" prefWidth="103.0" style="-fx-background-color: #89BD9E;" text="Restart" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+   </children>
+</Pane>

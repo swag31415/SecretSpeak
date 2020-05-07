@@ -12,6 +12,7 @@ public class App extends Application {
 
     private static Stage pStage;
     private static App instance;
+    public static WebUtils wutils;
 
     public static void main(String[] args) {
         launch(args);
@@ -28,6 +29,8 @@ public class App extends Application {
     @Override
     public void init() throws Exception {
         instance = this;
+        App.wutils = new WebUtils();
+        AES.setKey("TZ^*d9mk-qTm5dqnvfMw8ymG-v_*8UuCcy^&XrNrg5gGfs8XnPtX6#!ga*FHF#uS");
     }
 
     public static void loadScene(String fileName) throws IOException {
