@@ -1,3 +1,90 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
+
+<head>
+    <style>
+        :root {
+            --jungle: #03191E;
+            --crimson: #941C2F;
+            --turquoise: #59F8E8;
+            --caroline: #20A4F3;
+            --beau: #C1CFDA;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background: var(--jungle);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .center {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .split {
+            display: flex;
+        }
+
+        .split div:first-child {
+            min-width: 50%;
+            flex-grow: 1;
+        }
+
+        #backtext {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 10em;
+            color: var(--beau);
+        }
+
+        #main {
+            position: relative;
+        }
+
+        #txtbox {
+            min-width: 16em;
+            min-height: 20em;
+            resize: none;
+            font-size: xx-large;
+        }
+
+        button {
+            background-color: var(--crimson);
+            border: none;
+            color: var(--jungle);
+            font-size: xx-large;
+            text-align: center;
+            text-decoration: none;
+            padding: 0.2em;
+            transition-duration: 0.4s;
+        }
+
+        button:hover {
+            background-color: var(--turquoise);
+            color: var(--caroline);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div id="backtext">SecretSpeak</div>
+        <div id="main">
+            <textarea id="txtbox" placeholder="Enter your message here and press encrypt"></textarea>
+            <div class="split">
+                <div><button>Encrypt</button></div>
+                <div><button>Decrypt</button></div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
