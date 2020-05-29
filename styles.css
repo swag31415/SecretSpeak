@@ -62,9 +62,17 @@ button:hover {
   color: var(--beau);
 }
 
+textarea {
+  font-size: xx-large;
+  resize: none;
+}
+
 #txtbox {
   min-width: 16em;
   min-height: 20em;
-  resize: none;
-  font-size: xx-large;
+}
+
+#decbox {
+  min-width: 16em;
+  min-height: 0.5em;
 }

@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <link rel=stylesheet type=text/css href=styles.css>
-</head>
-
 <body>
   <div class=center>
     <div id=backtext class=abs>SecretSpeak</div>
     <div class=rel>
       <textarea id=txtbox placeholder="Enter your message here and press encrypt"></textarea>
+      <div><textarea id=decbox placeholder="OR enter a decryption key here and press decrypt"></textarea></div>
       <div class=split>
-        <div><button>Encrypt</button></div>
-        <div><button>Decrypt</button></div>
+        <div><button onclick="encrypt()">Encrypt</button></div>
+        <div><button onclick="decrypt()">Decrypt</button></div>
       </div>
     </div>
   </div>
 </body>
+
+<head>
+  <link rel=stylesheet type=text/css href=styles.css>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ricmoo/aes-js@e27b99dff787a143e59a3de473cab53e8375af36/index.js"></script>
+  <script type="text/javascript" src="scripts.js"></script>
+</head>
 
 </html>
