@@ -8,6 +8,9 @@ function clear_txtbox() {txtbox.value = ""}
 function set_txtbox_placeholder(text) {
   txtbox.placeholder = text
 }
+function set_decbox_placeholder(text) {
+  decbox.placeholder = text
+}
 
 function enc(text) {
   let textBytes = aesjs.utils.utf8.toBytes(text)
@@ -28,16 +31,29 @@ function dec(text) {
 
 function encrypt() {
   let text = txtbox.value
+  if (text == "") {
+    set_txtbox_placeholder("You have to enter SOMETHING")
+    return
+  }
   let encText = enc(text)
   navigator.clipboard.writeText(encText)
   clear_txtbox()
-  set_txtbox_placeholder("Awesome! Your message has been encrypted and copied. You can now send it to the other person.")
+  set_txtbox_placeholder("Awesome! Your message has been encrypted and copied. You can now send it to the other person")
+  set_decbox_placeholder("Then you may enter their encrypted message here and press decrypt")
 }
 
 function decrypt() {
   let encText = decbox.value
+  if (encText == "") {
+    set_decbox_placeholder("You need to enter something to decrypt here")
+    return
+  }
   let otherText = dec(encText)
   let text = txtbox.value
+  if (text == "") {
+    set_txtbox_placeholder("To decrypt something you need to enter your guess here first. Your guess has to be simmilar to decrypt")
+    return
+  }
   var query = new URLSearchParams({ "text1": text, "text2": otherText })
   fetch("https://twinword-text-similarity-v1.p.rapidapi.com/similarity/?" + query.toString(), {
     "method": "GET",
@@ -51,10 +67,11 @@ function decrypt() {
         if (json["similarity"] > 0.5) {
           clear_decbox()
           clear_txtbox()
-          set_txtbox_placeholder("YOU GOT IT\n\nThey said: " + text + "\n\nNow you can start again!\nEnter your message here and press encrypt")
+          set_txtbox_placeholder("YOU GOT IT\n\nThey said: " + otherText + "\n\nNow you may start again!\nEnter your message here and press encrypt")
+          set_decbox_placeholder("OR enter another encrypted message here and press decrypt")
         } else {
           clear_txtbox()
-          set_txtbox_placeholder("Darn it! Not simmilar enough...\n\nYou can always try again!")
+          set_txtbox_placeholder("Darn it! Not simmilar enough...\n\nYou may always try again!")
         }
       })
     })
